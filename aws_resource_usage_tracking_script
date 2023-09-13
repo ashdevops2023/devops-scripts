@@ -1,0 +1,75 @@
+How to track AWS resource usage using shell script
+
+Prerequisite :
+1.	Install AWS CLI
+2.	Configure it with aws credential
+
+
+Install AWS CLI
+1.	Update package list- ensure that your package lists are up to date by running:
+     $ sudo apt update
+
+2.	Install aws cli using python pip- AWS CLI is available through Python pip, so you'll need to install pip
+    $ sudo apt install python3-pip
+
+3.	Install aws cli with pip - install the AWS CLI using pip:
+    $ sudo pip3 install awscli
+
+4.	Verify installation
+    $ aws --version
+
+5.  Configure it with aws credential
+    $ aws configure
+
+*******************************************************************
+
+
+Start writing script
+### Always mention what is this script about using comment in the script
+ 
+
+### This is the basic script to list mentioned resources
+ 
+### give permission to file using chmod. Here we are giving chmod 777 to the file.but this is not a good practice.
+
+### execute file
+ 
+It will show lot of info so open it in file mode
+
+
+### open file in file mode
+ 
+Using pipe | more we can understand file in better way
+
+### If I want to know script written by peers or seniors use below command in script
+ 
+
+
+### to get the simpler only instance id instead if all info like below
+ 
+We can use jq command. Above is the json format
+Jq command extract json data easily. Jq is for json
+Yq is for yaml
+
+### here instance id is inside instances and instances are inside reservation
+ 
+So, command will look like below
+ 
+This will onloy show instance ID.  [] shows list
+
+### above commands will display result like below:
+ 
+***************************************************************************
+### Put this info into file
+Every output we can redirect to file(resourcetracker) by improvising script. So that any one can open file and see the output.
+aws s3 ls > resourcetracker
+aws ec2 describe-instances > resourcetracker
+ 
+
+*************************************************************************************
+
+
+#### Now Integrate thus with crontab
+
+
+                            
